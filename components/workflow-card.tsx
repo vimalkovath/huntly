@@ -1,11 +1,20 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CircleDashed } from "lucide-react";
-import type { WorkflowStep } from "@/types/workflow";
+import { BriefcaseBusiness, CircleDashed, Mail, SearchCheck, Sparkles, UsersRound } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import type { WorkflowIcon, WorkflowStep } from "@/types/workflow";
+
+const workflowIcons: Record<WorkflowIcon, LucideIcon> = {
+  briefcase: BriefcaseBusiness,
+  sparkles: Sparkles,
+  search: SearchCheck,
+  mail: Mail,
+  users: UsersRound,
+};
 
 export function WorkflowCard({ step }: { step: WorkflowStep }) {
-  const Icon = step.icon;
+  const Icon = workflowIcons[step.icon];
   return (
     <motion.article whileHover={{ y: -2 }} transition={{ duration: 0.18 }} className="group rounded-lg border border-white/[0.08] bg-white/[0.025] p-4 shadow-lg shadow-black/10 transition-colors hover:border-white/[0.15] hover:bg-white/[0.045]">
       <div className="flex items-start gap-3">
