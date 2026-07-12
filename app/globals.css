@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root { color-scheme: dark; }
+  * { @apply border-white/[0.09]; }
+  body { @apply min-h-screen bg-[#09090b] text-zinc-100 antialiased; }
+  ::selection { @apply bg-emerald-400/30 text-white; }
+}
+
+@layer utilities {
+  .surface { @apply border border-white/[0.09] bg-white/[0.035] shadow-2xl shadow-black/20 backdrop-blur-xl; }
+  .grid-background {
+    background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(to bottom, black, transparent 85%);
+  }
+}
